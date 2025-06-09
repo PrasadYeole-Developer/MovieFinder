@@ -25,10 +25,10 @@ A movie search web app built using **Next.js (App Router)**, **Tailwind CSS**, a
 
 1. **Clone the repository**:
 
-   ```bash
+```bash
    git clone https://github.com/PrasadYeole-Developer/MovieFinder.git
    cd MovieFinder
-   ```
+```
 
 2. Install dependencies:
 
