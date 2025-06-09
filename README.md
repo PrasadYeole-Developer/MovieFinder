@@ -16,9 +16,8 @@ A movie search web app built using **Next.js (App Router)**, **Tailwind CSS**, a
 
 ### 🚀 Features
 
-- Movie search with title
+- Movie search with title and pagination
 - Movie detail page
-- Dark mode support
 - Global state management with Redux
 - Responsive UI
 
@@ -37,15 +36,14 @@ A movie search web app built using **Next.js (App Router)**, **Tailwind CSS**, a
    npm install
  ```
 
-3. Add OMDb API key:
-Create a .env.local file in the root:
+3. Add OMDb API key : Create a .env.local file in the root:
 
 ```bash
 NEXT_PUBLIC_OMDB_API_KEY=your_omdb_api_key_here
 ```
 
 4. Run the app locally:
-5. 
+
 ```bash
    npm install
 ```
