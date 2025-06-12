@@ -1,4 +1,4 @@
-import { log } from "console";
+// api.ts
 import axiosInstance from "./axios";
 
 const getMovies = async (search: string, page: number) => {
@@ -9,20 +9,9 @@ const getMovies = async (search: string, page: number) => {
         page,
       },
     });
-    if (res.data.Response === "True") {
-      const basicDets = res.data.Search;
 
-      const detailedMovies = await Promise.all(
-        basicDets.map(async (movie: any) => {
-          const detailRes = await axiosInstance.get("/", {
-            params: {
-              i: movie.imdbID,
-            },
-          });
-          return detailRes.data;
-        })
-      );
-      return detailedMovies;
+    if (res.data.Response === "True") {
+      return res.data.Search;
     } else {
       return [];
     }
@@ -33,4 +22,3 @@ const getMovies = async (search: string, page: number) => {
 };
 
 export default getMovies;
-

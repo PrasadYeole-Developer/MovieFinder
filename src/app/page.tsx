@@ -18,10 +18,6 @@ const Home = () => {
   const { movies, loading } = useSelector((state: any) => state);
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-  // const [query, setQuery] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const [movies, setMovies] = useState([]);
-  // const [page, setPage] = useState(1);
 
   const fetchMovies = async (query: string, page: number) => {
     try {
@@ -31,17 +27,6 @@ const Home = () => {
     } catch (error) {
       dispatch(fetchMoviesFail("Error fetching movies"));
     }
-
-    // try {
-    //   setLoading(true);
-    //   const movies: any = await getMovies(query, page);
-    //   setMovies(movies);
-    // } catch (err) {
-    //   console.error(err);
-    //   setMovies([]);
-    // } finally {
-    //   setLoading(false);
-    // }
   };
 
   useEffect(() => {
@@ -104,7 +89,8 @@ const Home = () => {
           <>
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {movies.map((movie: any) => (
-                <Link href={`movie/${movie.imdbID}`}
+                <Link
+                  href={`movie/${movie.imdbID}`}
                   key={movie.imdbID}
                   className="border rounded overflow-hidden p-4 pb-2 transition duration-300 bg-white dark:bg-gray-900"
                 >
@@ -124,16 +110,8 @@ const Home = () => {
                     <p className="text-sm text-gray-600 dark:text-gray-500 mt-1">
                       Year: {movie.Year}
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Genre: {movie.Genre || "N/A"}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      IMDb Rating: {movie.imdbRating || "N/A"}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
-                      {movie.Plot !== "N/A"
-                        ? movie.Plot
-                        : "No description available."}
+                    <p className="text-sm text-gray-600 dark:text-blue-300">
+                     Description: ...more
                     </p>
                   </div>
                 </Link>
@@ -142,13 +120,19 @@ const Home = () => {
 
             <div className="flex justify-center items-center gap-4 mt-10">
               <Button
+                className="cursor-pointer"
                 onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
                 disabled={page === 1}
               >
                 Previous
               </Button>
               <span className="font-medium text-lg">{page}</span>
-              <Button onClick={() => setPage((prev) => prev + 1)}>Next</Button>
+              <Button
+                className="cursor-pointer"
+                onClick={() => setPage((prev) => prev + 1)}
+              >
+                Next
+              </Button>
             </div>
           </>
         )}

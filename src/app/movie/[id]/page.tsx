@@ -50,7 +50,10 @@ const SingleMovie = () => {
 
   return (
     <>
-      <div className="w-full p-6">
+      <div className="w-full p-6 bg-blue-950 relative">
+        <Link
+        className="text-3xl absolute top-8 left-10"
+        href="/">➥</Link>
         <h1 className="text-6xl font-black mb-8 text-center">{movie.Title}</h1>
         <Image
           src={movie.Poster !== "N/A" ? movie.Poster : "/no-image.jpg"}
@@ -60,31 +63,26 @@ const SingleMovie = () => {
           className="mb-13 rounded w-full h-[50vh] object-contain"
         />
         <p className="text-2xl">
-          <strong>Year:</strong> {movie.Year}
+          <strong className="block text-4xl mb-2">Year:</strong> {movie.Year}
         </p>
         <p className="text-2xl mt-5">
-          <strong>Genre:</strong> {movie.Genre}
+          <strong className="block text-4xl mb-2">Genre:</strong> {movie.Genre}
         </p>
         <p className="text-2xl mt-5">
-          <strong>Director:</strong> {movie.Director}
+          <strong className="block text-4xl mb-2">Director:</strong>{" "}
+          {movie.Director}
         </p>
         <p className="text-2xl mt-5">
-          <strong>Actors:</strong> {movie.Actors}
+          <strong className="block text-4xl mb-2">Actors:</strong>{" "}
+          {movie.Actors}
         </p>
         <p className="text-2xl mt-5">
-          <strong>Plot:</strong> {movie.Plot}
+          <strong className="block text-4xl mb-2">Plot:</strong> {movie.Plot}
         </p>
         <p className="text-2xl mt-5">
-          <strong>IMDB Rating:</strong> {movie.imdbRating}
+          <strong className="text-3xl">IMDB Rating:</strong> {movie.imdbRating}
         </p>
       </div>
-
-      <Link
-        href="/"
-        className="mt-6 ml-6 text-gray-400 underline hover:text-gray-300"
-      >
-        ← Back to Home
-      </Link>
     </>
   );
 };
