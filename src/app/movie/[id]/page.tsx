@@ -52,7 +52,7 @@ const SingleMovie = () => {
     <>
       <div className="w-full p-6 bg-blue-950 relative">
         <Link
-        className="text-3xl absolute top-8 left-10"
+        className="text-3xl absolute top-8 left-10 hover:text-gray-200"
         href="/">➥</Link>
         <h1 className="text-6xl font-black mb-8 text-center">{movie.Title}</h1>
         <Image
